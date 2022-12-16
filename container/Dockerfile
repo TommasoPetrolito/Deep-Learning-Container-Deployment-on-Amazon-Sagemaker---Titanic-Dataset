@@ -23,12 +23,13 @@ RUN apt-get update \
 RUN pip3 install numpy scipy scikit-learn pandas tensorflow==1.14 keras==2.2.5 setuptools==41.0.0 h5py==2.10.0 gunicorn==19.9.0 gevent flask && \
         rm -rf /root/.cache
 
+RUN pip3 install -U spacy==3.4.4
 
 ENV PYTHONUNBUFFERED=TRUE
 ENV PYTHONDONTWRITEBYTECODE=TRUE
 ENV PATH="/opt/program:${PATH}"
 
 
-COPY ./titanic /opt/program
+COPY ./spacy /opt/program
 WORKDIR /opt/program
 
